@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import type { FC } from 'react';
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRightIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import artworks from '@/lib/artwork';
 
 const Artwork: FC = () => {
@@ -36,23 +36,13 @@ const Artwork: FC = () => {
           background-image: url(${artworks[artwork].image});
         }
       `}</style>
-      <div className="flex h-screen w-screen p-8">
+      <div className="flex h-screen w-screen gap-16 p-8">
         <div className="flex-1">
-          <p>{artworks[artwork].name}</p>
+          <p className="text-4xl">{artworks[artwork].name}</p>
+
+          <p className="text-xl">{artworks[artwork].text}</p>
 
           <div className="flex items-center gap-4">
-            <button
-              type="button"
-              onClick={() =>
-                setArtwork((artwork + artworks.length - 1) % artworks.length)
-              }
-            >
-              <ArrowLeftIcon
-                className="h-6 w-6 text-neutral-400"
-                width={24}
-                height={24}
-              />
-            </button>
             <button
               type="button"
               onClick={() => setArtwork((artwork + 1) % artworks.length)}
