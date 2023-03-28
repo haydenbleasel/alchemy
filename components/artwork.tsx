@@ -36,26 +36,8 @@ const Artwork: FC = () => {
           background-image: url(${artworks[artwork].image});
         }
       `}</style>
-      <div className="flex h-screen w-screen gap-16 p-8">
-        <div className="flex-1">
-          <p className="text-4xl">{artworks[artwork].name}</p>
-
-          <p className="text-xl">{artworks[artwork].text}</p>
-
-          <div className="flex items-center gap-4">
-            <button
-              type="button"
-              onClick={() => setArtwork((artwork + 1) % artworks.length)}
-            >
-              <ArrowRightIcon
-                className="h-6 w-6 text-neutral-400"
-                width={24}
-                height={24}
-              />
-            </button>
-          </div>
-        </div>
-        <div className="relative aspect-[2/3] h-full shrink-0">
+      <div className="flex h-screen w-screen items-center justify-center p-8">
+        <div className="relative aspect-[2/3] h-full">
           <div
             id="fondo"
             className={clsx(
@@ -75,6 +57,28 @@ const Artwork: FC = () => {
               WebkitAnimation: 'mask-playzero 2s steps(29) forwards',
             }}
           />
+          <div className="absolute left-full w-full max-w-xs pl-4">
+            <p className="text-xl">{artworks[artwork].name}</p>
+
+            <p className="text-sm">{artworks[artwork].text}</p>
+
+            <blockquote className="h-full w-full text-sm italic">
+              {artworks[artwork].quote}
+            </blockquote>
+
+            <div className="flex items-center gap-4">
+              <button
+                type="button"
+                onClick={() => setArtwork((artwork + 1) % artworks.length)}
+              >
+                <ArrowRightIcon
+                  className="h-6 w-6 text-neutral-400"
+                  width={24}
+                  height={24}
+                />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </>
