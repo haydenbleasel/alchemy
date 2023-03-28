@@ -4,18 +4,7 @@ import clsx from 'clsx';
 import type { FC } from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { ArrowRightIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
-
-const artworks = [
-  '/artwork/church.png',
-  '/artwork/andalusian-marketplace.png',
-  '/artwork/gypsy.png',
-  '/artwork/travel.png',
-  '/artwork/teahouse.png',
-  '/artwork/egyptian-marketplace.png',
-  '/artwork/crystal-merchant.png',
-  '/artwork/caravan.png',
-  '/artwork/oasis.png',
-];
+import artworks from '@/lib/artwork';
 
 const Artwork: FC = () => {
   const [artwork, setArtwork] = useState(0);
@@ -39,17 +28,17 @@ const Artwork: FC = () => {
         #fondo {
           ${artwork > 0
             ? `
-          background-image: url(${artworks[artwork - 1]});
+          background-image: url(${artworks[artwork - 1].image});
           `
             : ''}
         }
         #encima:before {
-          background-image: url(${artworks[artwork]});
+          background-image: url(${artworks[artwork].image});
         }
       `}</style>
       <div className="flex h-screen w-screen p-8">
         <div className="flex-1">
-          <p>test</p>
+          <p>{artworks[artwork].name}</p>
 
           <div className="flex items-center gap-4">
             <button
