@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes mask-playzero {
+  from {
+    mask-position: 0 0;
+  }
+
+  to {
+    mask-position: 100% 0;
+  }
+}
