@@ -1,27 +1,8 @@
-import localFont from '@next/font/local';
+import { Cardo as createSerif } from '@next/font/google';
 
-export const serif = localFont({
+export const serif = createSerif({
   variable: '--font-serif',
-  src: [
-    {
-      path: '../public/fonts/Charter-Regular.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/Charter-Italic.woff2',
-      weight: '400',
-      style: 'italic',
-    },
-    {
-      path: '../public/fonts/Charter-Bold.woff2',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/Charter-BoldItalic.woff2',
-      weight: '700',
-      style: 'italic',
-    },
-  ],
+  style: 'normal',
+  subsets: ['latin'],
+  weight: '400',
 });

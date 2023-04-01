@@ -37,6 +37,26 @@ const Artwork: FC = () => {
         }
       `}</style>
       <div className="flex h-screen w-screen items-center justify-center p-8">
+        <p className="absolute top-16 left-16 z-10 w-[80vw] text-9xl mix-blend-overlay">
+          {artworks[artwork].name}
+        </p>
+        <p className="absolute bottom-16 right-16 z-10 max-w-xs text-sm">
+          {artworks[artwork].text}
+        </p>
+        <blockquote className="absolute bottom-16 left-16 z-10 max-w-xs text-sm italic">
+          {artworks[artwork].quote}
+        </blockquote>
+        <button
+          type="button"
+          className="absolute top-8 right-8"
+          onClick={() => setArtwork((artwork + 1) % artworks.length)}
+        >
+          <ArrowRightIcon
+            className="h-12 w-12 text-neutral-900"
+            width={48}
+            height={48}
+          />
+        </button>
         <div className="relative aspect-[2/3] h-full">
           <div
             id="fondo"
@@ -57,28 +77,6 @@ const Artwork: FC = () => {
               WebkitAnimation: 'mask-playzero 2s steps(29) forwards',
             }}
           />
-          <div className="absolute left-full w-full max-w-xs pl-4">
-            <p className="text-xl">{artworks[artwork].name}</p>
-
-            <p className="text-sm">{artworks[artwork].text}</p>
-
-            <blockquote className="h-full w-full text-sm italic">
-              {artworks[artwork].quote}
-            </blockquote>
-
-            <div className="flex items-center gap-4">
-              <button
-                type="button"
-                onClick={() => setArtwork((artwork + 1) % artworks.length)}
-              >
-                <ArrowRightIcon
-                  className="h-6 w-6 text-neutral-400"
-                  width={24}
-                  height={24}
-                />
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </>
