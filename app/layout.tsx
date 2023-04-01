@@ -7,7 +7,7 @@ import { Analytics } from '@/components/analytics';
 const Layout: FC<{
   children: ReactNode;
 }> = ({ children }) => (
-  <html lang="en" className={clsx(serif.variable, 'font-serif')}>
+  <html lang="en" className={clsx(serif.variable, 'bg-neutral-50 font-serif')}>
     <body>
       {children}
       <Analytics />

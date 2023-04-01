@@ -25,19 +25,19 @@ const Artwork: FC = () => {
   return (
     <>
       <style jsx>{`
-        #fondo {
+        #before {
           ${artwork > 0
             ? `
           background-image: url(${artworks[artwork - 1].image});
           `
             : ''}
         }
-        #encima:before {
+        #after:before {
           background-image: url(${artworks[artwork].image});
         }
       `}</style>
       <div className="flex h-screen w-screen items-center justify-center p-8">
-        <p className="absolute top-16 left-16 z-10 w-[80vw] text-9xl mix-blend-overlay">
+        <p className="absolute left-16 top-16 z-10 w-[80vw] text-9xl text-white mix-blend-exclusion">
           {artworks[artwork].name}
         </p>
         <p className="absolute bottom-16 right-16 z-10 max-w-xs text-sm">
@@ -48,7 +48,7 @@ const Artwork: FC = () => {
         </blockquote>
         <button
           type="button"
-          className="absolute top-8 right-8"
+          className="absolute right-8 top-8"
           onClick={() => setArtwork((artwork + 1) % artworks.length)}
         >
           <ArrowRightIcon
@@ -59,17 +59,17 @@ const Artwork: FC = () => {
         </button>
         <div className="relative aspect-[2/3] h-full">
           <div
-            id="fondo"
+            id="before"
             className={clsx(
               'absolute left-0 top-0 h-full w-full bg-cover bg-left-top bg-no-repeat'
             )}
           />
           <div
             ref={enicmaRef}
-            id="encima"
+            id="after"
             className={clsx(
               'absolute left-0 top-0 h-full w-full',
-              "before:content-[' '] before:absolute before:top-0 before:left-0 before:h-full before:w-full before:bg-cover before:bg-left-top before:bg-no-repeat"
+              "before:content-[' '] before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-cover before:bg-left-top before:bg-no-repeat"
             )}
             style={{
               WebkitMask: 'url(/transition.png)',
