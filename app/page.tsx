@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     creator: '@haydenbleasel',
   },
   icons: {
-    icon: '/icon.png',
+    icon: '/favicon.png',
   },
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? ''),
 };
