@@ -11,13 +11,21 @@ export const metadata: Metadata = {
     url: process.env.NEXT_PUBLIC_SITE_URL,
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_SITE_URL}/cover.png`,
+        url: '/cover.png',
         width: 1200,
         height: 630,
         alt: 'Alchemy',
       },
     ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    creator: '@haydenbleasel',
+  },
+  icons: {
+    icon: '/icon.png',
+  },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? ''),
 };
 
 const Home: FC = () => <Artwork />;
