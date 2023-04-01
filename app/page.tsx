@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import type { FC } from 'react';
 
 export const metadata: Metadata = {
-  title: 'The Alchemist',
+  title: 'Alchemy',
   description: 'A visual journey of The Alchemist, powered by Midjourney.',
   applicationName: 'Alchemy',
   openGraph: {
