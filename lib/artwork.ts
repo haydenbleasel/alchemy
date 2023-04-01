@@ -3,13 +3,15 @@ const artworks = [
     name: 'The Abandoned Church',
     image: '/artwork/church.jpg',
     text: "The boy's name was Santiago. Dusk was falling as the boy arrived with his herd at an abandoned church. The roof had fallen in long ago, and an enormous sycamore had grown on the spot where the sacristy had once stood. He decided to spend the night there. He saw to it that all the sheep entered through the ruined gate, and then laid some planks across it to prevent the flock from wandering away during the night. There were no wolves in the region, but once an animal had strayed during the night, and the boy had had to spend the entire next day searching for it...",
+    quote:
+      'It’s the possibility of having a dream come true that makes life interesting.',
   },
   {
     name: 'The Andalusian Marketplace',
     image: '/artwork/andalusian-marketplace.jpg',
     text: 'For the past few days he had spoken to them about only one thing: the girl, the daughter of a merchant who lived in the village they would reach in about four days. He had been to the village only once, the year before. The merchant was the proprietor of a dry goods shop, and he always demanded that the sheep be sheared in his presence, so that he would not be cheated.',
     quote:
-      'It’s the possibility of having a dream come true that makes life interesting.',
+      'Everyone seems to have a clear idea of how other people should lead their lives, but none about his or her own.',
   },
   {
     name: "The Gypsy's Tent",
@@ -57,6 +59,8 @@ const artworks = [
     name: 'The Oasis',
     image: '/artwork/oasis.jpg',
     text: 'The boy awoke as the sun rose. There, in front of him, where the small stars had been the night before, was an endless row of date palms, stretching across the entire desert.',
+    quote:
+      'There is only one thing that makes a dream impossible to achieve: the fear of failure.',
   },
   {
     name: 'Fatima',
@@ -68,12 +72,9 @@ const artworks = [
   {
     name: 'The Pyramids',
     image: '/artwork/pyramids.jpg',
-    text: '',
-  },
-  {
-    name: 'The Alchemist',
-    image: '/artwork/alchemist.jpg',
-    text: '',
+    text: 'When he reached the top of the dune, his heart leapt. There, illuminated by the light of the moon and the brightness of the desert, stood the solemn and majestic Pyramids of Egypt.',
+    quote:
+      'Most people see the world as a threatening place, and, because they do, the world turns out, indeed, to be a threatening place.',
   },
 ];
 
