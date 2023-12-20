@@ -1,13 +1,15 @@
-import type { FC, ReactNode } from 'react';
 import '@/styles/globals.css';
-import clsx from 'clsx';
 import { serif } from '@/lib/fonts';
 import { Analytics } from '@/components/analytics';
+import { cn } from '@/lib/utils';
+import type { FC, ReactNode } from 'react';
 
-const Layout: FC<{
-  children: ReactNode;
-}> = ({ children }) => (
-  <html lang="en" className={clsx(serif.variable, 'bg-neutral-50 font-serif')}>
+type LayoutProps = {
+  readonly children: ReactNode;
+};
+
+const Layout: FC<LayoutProps> = ({ children }) => (
+  <html lang="en" className={cn(serif.variable, 'bg-neutral-50 font-serif')}>
     <body>
       {children}
       <Analytics />

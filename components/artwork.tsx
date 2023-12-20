@@ -1,10 +1,10 @@
 'use client';
 
 import clsx from 'clsx';
-import type { FC } from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import artworks from '@/lib/artwork';
+import type { FC } from 'react';
 
 const Artwork: FC = () => {
   const [artwork, setArtwork] = useState(0);
@@ -24,6 +24,7 @@ const Artwork: FC = () => {
 
   return (
     <>
+      {/* eslint-disable-next-line react/no-unknown-property */}
       <style jsx>{`
         #before {
           ${artwork > 0
@@ -50,6 +51,7 @@ const Artwork: FC = () => {
           type="button"
           className="absolute right-8 top-8"
           onClick={() => setArtwork((artwork + 1) % artworks.length)}
+          aria-label="Next artwork"
         >
           <ArrowRightIcon
             className="h-12 w-12 text-neutral-900"
