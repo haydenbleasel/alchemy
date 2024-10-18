@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
 import { serif } from '@/lib/fonts';
-import { Analytics } from '@/components/analytics';
+import { Analytics } from '@vercel/analytics/react';
 import { cn } from '@/lib/utils';
 import type { FC, ReactNode } from 'react';
 
