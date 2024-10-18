@@ -22,15 +22,15 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "*/*.mjs",
     ".next/types/**/*.ts",
-    "eslint.config.mjs",
-    "next.config.mjs"
   ],
   "exclude": ["node_modules"]
 }
