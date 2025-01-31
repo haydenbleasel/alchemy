@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   applicationName: 'Alchemy',
   openGraph: {
     locale: 'en_US',
-    url: process.env.NEXT_PUBLIC_SITE_URL,
     images: [
       {
         url: '/cover.png',
@@ -25,7 +24,6 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.png',
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? ''),
 };
 
 const Home: FC = () => <Artwork />;
