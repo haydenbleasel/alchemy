@@ -1,9 +1,9 @@
 # Alchemy
 
-A visual journey of The Alchemist, powered by Midjourney.
+A visual journey of The Alchemist, powered by OpenAI and Midjourney.
 
-Artwork was created using the following prompt:
+I started by creating a list of artworks that I wanted to create, based on scenes from the book I thought were particularly evocative.
 
-```
-a painting in the style of Diego Velazquez of a beautiful young woman walking gracefully through an egyptian oasis --ar 2-3 --v 5 --q 2
-```
+Having chosen Romanticism as the style, I then used OpenAI's ChatGPT 4o to generate a prompt for each artwork.
+
+I then passed the prompts to Midjourney v6.1 to generate the artworks.
