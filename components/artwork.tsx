@@ -10,6 +10,7 @@ import Balancer from 'react-wrap-balancer';
 
 const Artwork = () => {
   const [artwork, setArtwork] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const enicmaRef = useRef<HTMLDivElement>(null);
   const [mouse, mouseRef] = useMouse<HTMLDivElement>();
   const windowSize = useWindowSize();
@@ -31,29 +32,43 @@ const Artwork = () => {
       return;
     }
 
+    setIsTransitioning(true);
     enicmaRef.current.style.animation = 'none';
     // eslint-disable-next-line no-void
     void enicmaRef.current.offsetHeight;
     enicmaRef.current.style.animation = 'mask-playzero 2s steps(29) forwards';
+
+    const timer = setTimeout(() => {
+      setIsTransitioning(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
   }, [artwork]);
 
-  const handleClick = () =>
+  const handleClick = () => {
+    if (isTransitioning) return;
+
     relativeX < 0.5
       ? setArtwork((artwork - 1 + artworks.length) % artworks.length)
       : setArtwork((artwork + 1) % artworks.length);
+  };
   const ArrowIcon = relativeX < 0.5 ? ArrowLeftIcon : ArrowRightIcon;
 
   return (
     <div className="h-screen w-screen" ref={mouseRef}>
       <button
         type="button"
-        className="absolute z-50 outline-none"
+        className={clsx(
+          'absolute z-50 outline-none',
+          isTransitioning && 'pointer-events-none opacity-50'
+        )}
         style={{
           top: mouse.y,
           left: mouse.x,
         }}
         onClick={handleClick}
         aria-label="Next artwork"
+        disabled={isTransitioning}
       >
         <ArrowIcon
           className="h-12 w-12 text-neutral-900"
