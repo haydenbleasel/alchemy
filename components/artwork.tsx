@@ -66,12 +66,18 @@ const Artwork = () => {
         <h1 className="absolute top-16 left-16 z-10 w-[60vw] text-9xl text-white tracking-tight mix-blend-exclusion">
           <Balancer>{artworks[artwork].name}</Balancer>
         </h1>
-        <p className="absolute right-16 bottom-16 z-10 max-w-xs text-sm">
-          <Balancer>{artworks[artwork].text}</Balancer>
-        </p>
         <blockquote className="absolute bottom-16 left-16 z-10 max-w-xs text-sm italic">
           <Balancer>{artworks[artwork].quote}</Balancer>
         </blockquote>
+        <p className="absolute top-16 right-16 z-10 max-w-xs text-sm">
+          <Balancer>{artworks[artwork].text}</Balancer>
+        </p>
+        <div className="absolute right-16 bottom-16 z-10 flex flex-col gap-2">
+          <p className="text-sm opacity-50">Prompt</p>
+          <p className="line-clamp-3 max-w-xs text-sm">
+            {artworks[artwork].prompt}
+          </p>
+        </div>
         <div className="relative aspect-[2/3] h-full">
           <div
             id="before"
