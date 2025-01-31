@@ -1,15 +1,22 @@
 'use client';
 
 import { artworks } from '@/lib/artwork';
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import { useMouse, useWindowSize } from '@uidotdev/usehooks';
 import clsx from 'clsx';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Balancer from 'react-wrap-balancer';
 
 const Artwork = () => {
   const [artwork, setArtwork] = useState(0);
   const enicmaRef = useRef<HTMLDivElement>(null);
+  const [mouse, mouseRef] = useMouse<HTMLDivElement>();
+  const windowSize = useWindowSize();
+  const relativeX = useMemo(
+    () => mouse.x / (windowSize.width ?? 1),
+    [mouse.x, windowSize.width]
+  );
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: "Re-run when artwork changes"
   useEffect(() => {
@@ -23,8 +30,30 @@ const Artwork = () => {
     enicmaRef.current.style.animation = 'mask-playzero 2s steps(29) forwards';
   }, [artwork]);
 
+  const handleClick = () =>
+    relativeX < 0.5
+      ? setArtwork((artwork - 1 + artworks.length) % artworks.length)
+      : setArtwork((artwork + 1) % artworks.length);
+  const ArrowIcon = relativeX < 0.5 ? ArrowLeftIcon : ArrowRightIcon;
+
   return (
-    <>
+    <div className="h-screen w-screen" ref={mouseRef}>
+      <button
+        type="button"
+        className="absolute z-50"
+        style={{
+          top: mouse.y,
+          left: mouse.x,
+        }}
+        onClick={handleClick}
+        aria-label="Next artwork"
+      >
+        <ArrowIcon
+          className="h-12 w-12 text-neutral-900"
+          width={48}
+          height={48}
+        />
+      </button>
       <div className="-inset-16 fixed z-0">
         <Image
           src={artworks[artwork].image}
@@ -33,7 +62,7 @@ const Artwork = () => {
           className="opacity-10 blur-3xl"
         />
       </div>
-      <div className="z-10 flex h-screen w-screen items-center justify-center p-8">
+      <div className="z-10 flex h-screen w-screen cursor-none items-center justify-center p-8">
         <h1 className="absolute top-16 left-16 z-10 w-[60vw] text-9xl text-white tracking-tight mix-blend-exclusion">
           <Balancer>{artworks[artwork].name}</Balancer>
         </h1>
@@ -43,18 +72,6 @@ const Artwork = () => {
         <blockquote className="absolute bottom-16 left-16 z-10 max-w-xs text-sm italic">
           <Balancer>{artworks[artwork].quote}</Balancer>
         </blockquote>
-        <button
-          type="button"
-          className="absolute top-8 right-8"
-          onClick={() => setArtwork((artwork + 1) % artworks.length)}
-          aria-label="Next artwork"
-        >
-          <ArrowRightIcon
-            className="h-12 w-12 text-neutral-900"
-            width={48}
-            height={48}
-          />
-        </button>
         <div className="relative aspect-[2/3] h-full">
           <div
             id="before"
@@ -92,7 +109,7 @@ const Artwork = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
