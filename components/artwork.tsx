@@ -74,7 +74,7 @@ const Artwork = () => {
         </p>
         <div className="absolute right-16 bottom-16 z-10 flex flex-col gap-2">
           <p className="text-sm opacity-50">Prompt</p>
-          <p className="line-clamp-3 max-w-xs text-sm">
+          <p className="line-clamp-5 max-w-xs text-sm">
             {artworks[artwork].prompt}
           </p>
         </div>
