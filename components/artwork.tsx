@@ -77,14 +77,23 @@ const Artwork = () => {
             id="before"
             className={clsx('absolute top-0 left-0 h-full w-full')}
           >
-            {artwork > 0 && (
-              <Image
-                src={artworks[artwork - 1].image}
-                alt={artworks[artwork - 1].name}
-                fill
-                className="object-cover"
-              />
-            )}
+            {relativeX < 0.5
+              ? artwork < artworks.length - 1 && (
+                  <Image
+                    src={artworks[artwork + 1].image}
+                    alt={artworks[artwork + 1].name}
+                    fill
+                    className="object-cover"
+                  />
+                )
+              : artwork > 0 && (
+                  <Image
+                    src={artworks[artwork - 1].image}
+                    alt={artworks[artwork - 1].name}
+                    fill
+                    className="object-cover"
+                  />
+                )}
           </div>
           <div
             ref={enicmaRef}
