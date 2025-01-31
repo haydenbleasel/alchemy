@@ -1,4 +1,4 @@
-import { Cardo as createSerif } from '@next/font/google';
+import { Cardo as createSerif } from 'next/font/google';
 
 export const serif = createSerif({
   variable: '--font-serif',
