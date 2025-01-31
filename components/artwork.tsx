@@ -40,7 +40,7 @@ const Artwork = () => {
     <div className="h-screen w-screen" ref={mouseRef}>
       <button
         type="button"
-        className="absolute z-50"
+        className="absolute z-50 outline-none"
         style={{
           top: mouse.y,
           left: mouse.x,
@@ -62,22 +62,16 @@ const Artwork = () => {
           className="opacity-10 blur-3xl"
         />
       </div>
-      <div className="z-10 flex h-screen w-screen cursor-none items-center justify-center p-8">
-        <h1 className="absolute top-16 left-16 z-10 w-[60vw] text-9xl text-white tracking-tight mix-blend-exclusion">
+      <div className="z-10 flex h-screen w-screen cursor-none flex-col gap-4 p-4 sm:items-center sm:justify-center sm:p-8">
+        <h1 className="z-10 text-7xl text-white tracking-tight mix-blend-exclusion sm:absolute sm:top-16 sm:left-16 sm:w-[60vw] sm:text-9xl">
           <Balancer>{artworks[artwork].name}</Balancer>
         </h1>
-        <blockquote className="absolute bottom-16 left-16 z-10 max-w-xs text-sm italic">
+        <blockquote className="z-10 text-sm italic sm:absolute sm:bottom-16 sm:left-16 sm:max-w-xs">
           <Balancer>{artworks[artwork].quote}</Balancer>
         </blockquote>
-        <p className="absolute top-16 right-16 z-10 max-w-xs text-sm">
+        <p className="right-16 z-10 text-sm sm:absolute sm:top-16 sm:max-w-xs">
           <Balancer>{artworks[artwork].text}</Balancer>
         </p>
-        <div className="absolute right-16 bottom-16 z-10 flex flex-col gap-2">
-          <p className="text-sm opacity-50">Prompt</p>
-          <p className="line-clamp-5 max-w-xs text-sm">
-            {artworks[artwork].prompt}
-          </p>
-        </div>
         <div className="relative aspect-[2/3] h-full">
           <div
             id="before"
@@ -113,6 +107,12 @@ const Artwork = () => {
               className="object-cover"
             />
           </div>
+        </div>
+        <div className="z-10 flex flex-col gap-2 sm:absolute sm:right-16 sm:bottom-16">
+          <p className="text-sm opacity-50">Prompt</p>
+          <p className="line-clamp-5 text-sm sm:max-w-xs">
+            {artworks[artwork].prompt}
+          </p>
         </div>
       </div>
     </div>
