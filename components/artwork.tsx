@@ -18,6 +18,13 @@ const Artwork = () => {
     [mouse.x, windowSize.width]
   );
 
+  useEffect(() => {
+    for (const artwork of artworks) {
+      const img = new window.Image();
+      img.src = artwork.image.src;
+    }
+  }, []);
+
   // biome-ignore lint/correctness/useExhaustiveDependencies: "Re-run when artwork changes"
   useEffect(() => {
     if (!enicmaRef.current) {
@@ -84,6 +91,7 @@ const Artwork = () => {
                     alt={artworks[artwork + 1].name}
                     fill
                     className="object-cover"
+                    priority
                   />
                 )
               : artwork > 0 && (
@@ -92,6 +100,7 @@ const Artwork = () => {
                     alt={artworks[artwork - 1].name}
                     fill
                     className="object-cover"
+                    priority
                   />
                 )}
           </div>
@@ -114,6 +123,7 @@ const Artwork = () => {
               alt={artworks[artwork].name}
               fill
               className="object-cover"
+              priority
             />
           </div>
         </div>
