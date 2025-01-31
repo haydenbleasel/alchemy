@@ -6,23 +6,17 @@ export const metadata: Metadata = {
   title: 'Alchemy',
   description: 'A visual journey of The Alchemist, powered by Midjourney.',
   applicationName: 'Alchemy',
+  authors: [{ name: 'Hayden Bleasel', url: 'https://haydenbleasel.com' }],
+  creator: 'Hayden Bleasel',
   openGraph: {
     locale: 'en_US',
-    images: [
-      {
-        url: '/cover.png',
-        width: 1200,
-        height: 630,
-        alt: 'Alchemy',
-      },
-    ],
+    title: 'Alchemy',
+    description: 'A visual journey of The Alchemist, powered by Midjourney.',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     creator: '@haydenbleasel',
-  },
-  icons: {
-    icon: '/favicon.png',
   },
 };
 
