@@ -107,5 +107,7 @@ export const artworks = [
     text: 'When he reached the top of the dune, his heart leapt. There, illuminated by the light of the moon and the brightness of the desert, stood the solemn and majestic Pyramids of Egypt.',
     quote:
       'Most people see the world as a threatening place, and, because they do, the world turns out, indeed, to be a threatening place.',
+    prompt:
+      'A Romanticism-style oil painting of Santiago standing atop a towering sand dune, his silhouette bathed in the ethereal glow of the moonlight. Below him, the vast desert stretches endlessly, its golden sands shimmering beneath the cool, silvery light. In the distance, rising with solemn majesty, stand the Great Pyramids of Egypt, their ancient stones illuminated by both the moon and the soft radiance of the stars. The wind carries a sense of destiny and timeless wonder, as if the desert itself whispers secrets of the past. Santiago’s heart is full of awe and fulfillment as he gazes upon the legendary monuments, a moment of profound revelation and the culmination of his journey. The scene is grand, poetic, and deeply symbolic, evoking the sublime beauty of adventure, fate, and self-discovery. Romanticism oil painting, sweeping composition, dramatic lighting, intricate detailing, soft chiaroscuro, deep atmospheric depth, 19th-century European art style. --q 2 --ar 2:3',
   },
 ];
