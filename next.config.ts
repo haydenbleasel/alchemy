@@ -1,12 +1,12 @@
+import type { NextConfig } from 'next';
 import { createSecureHeaders } from 'next-secure-headers';
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
+const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
-  headers() {
+  // biome-ignore lint/suspicious/useAwait: "headers is async"
+  async headers() {
     return [
       {
         source: '/(.*)',
