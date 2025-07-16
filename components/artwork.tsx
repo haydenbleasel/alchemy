@@ -1,12 +1,12 @@
 'use client';
 
-import { artworks } from '@/lib/artwork';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import { useMouse, useWindowSize } from '@uidotdev/usehooks';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Balancer from 'react-wrap-balancer';
+import { artworks } from '@/lib/artwork';
 
 const Artwork = () => {
   const [artwork, setArtwork] = useState(0);
@@ -46,7 +46,9 @@ const Artwork = () => {
   }, [artwork]);
 
   const handleClick = () => {
-    if (isTransitioning) return;
+    if (isTransitioning) {
+      return;
+    }
 
     relativeX < 0.5
       ? setArtwork((artwork - 1 + artworks.length) % artworks.length)
@@ -57,31 +59,31 @@ const Artwork = () => {
   return (
     <div className="h-screen w-screen" ref={mouseRef}>
       <button
-        type="button"
+        aria-label="Next artwork"
         className={clsx(
           'absolute z-50 outline-none',
           isTransitioning && 'pointer-events-none opacity-50'
         )}
+        disabled={isTransitioning}
+        onClick={handleClick}
         style={{
           top: mouse.y,
           left: mouse.x,
         }}
-        onClick={handleClick}
-        aria-label="Next artwork"
-        disabled={isTransitioning}
+        type="button"
       >
         <ArrowIcon
           className="h-12 w-12 text-neutral-900"
-          width={48}
           height={48}
+          width={48}
         />
       </button>
       <div className="-inset-16 fixed z-0">
         <Image
-          src={artworks[artwork].image}
           alt={artworks[artwork].name}
-          fill
           className="opacity-10 blur-3xl"
+          fill
+          src={artworks[artwork].image}
         />
       </div>
       <div className="z-10 flex h-screen w-screen cursor-none flex-col gap-4 p-4 sm:items-center sm:justify-center sm:p-8">
@@ -96,37 +98,37 @@ const Artwork = () => {
         </p>
         <div className="relative aspect-[2/3] h-full">
           <div
-            id="before"
             className={clsx('absolute top-0 left-0 h-full w-full')}
+            id="before"
           >
             {relativeX < 0.5
               ? artwork < artworks.length - 1 && (
                   <Image
-                    src={artworks[artwork + 1].image}
                     alt={artworks[artwork + 1].name}
-                    fill
                     className="object-cover"
+                    fill
                     priority
+                    src={artworks[artwork + 1].image}
                   />
                 )
               : artwork > 0 && (
                   <Image
-                    src={artworks[artwork - 1].image}
                     alt={artworks[artwork - 1].name}
-                    fill
                     className="object-cover"
+                    fill
                     priority
+                    src={artworks[artwork - 1].image}
                   />
                 )}
           </div>
           <div
-            ref={enicmaRef}
-            id="after"
             className={clsx(
               'absolute top-0 left-0 h-full w-full',
               // biome-ignore lint/nursery/useSortedClasses: <explanation>
               "before:content-[' '] before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-cover before:bg-left-top before:bg-no-repeat"
             )}
+            id="after"
+            ref={enicmaRef}
             style={{
               WebkitMask: 'url(/transition.png)',
               WebkitMaskSize: '3000% 100%',
@@ -134,11 +136,11 @@ const Artwork = () => {
             }}
           >
             <Image
-              src={artworks[artwork].image}
               alt={artworks[artwork].name}
-              fill
               className="object-cover"
+              fill
               priority
+              src={artworks[artwork].image}
             />
           </div>
         </div>

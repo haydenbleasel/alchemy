@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @keyframes mask-playzero {
   from {
@@ -10,4 +10,6 @@
   }
 }
 
-* { cursor: none !important; }
+* {
+  cursor: none !important;
+}

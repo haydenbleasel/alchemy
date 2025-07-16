@@ -1,6 +1,6 @@
-import Artwork from '@/components/artwork';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
+import Artwork from '@/components/artwork';
 
 export const metadata: Metadata = {
   title: 'Alchemy',

@@ -1,15 +1,15 @@
 import '@/styles/globals.css';
-import { serif } from '@/lib/fonts';
 import { Analytics } from '@vercel/analytics/react';
-import { cn } from '@/lib/utils';
 import type { FC, ReactNode } from 'react';
+import { serif } from '@/lib/fonts';
+import { cn } from '@/lib/utils';
 
 type LayoutProps = {
   readonly children: ReactNode;
 };
 
 const Layout: FC<LayoutProps> = ({ children }) => (
-  <html lang="en" className={cn(serif.variable, 'bg-neutral-50 font-serif')}>
+  <html className={cn(serif.variable, 'bg-neutral-50 font-serif')} lang="en">
     <body>
       {children}
       <Analytics />
