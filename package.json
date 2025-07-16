@@ -1,4 +1,6 @@
 {
+  "name": "alchemy",
+  "description": "A visual journey of The Alchemist, powered by OpenAI and Midjourney.",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -28,5 +30,8 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.11",
     "ultracite": "5.0.36"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }
